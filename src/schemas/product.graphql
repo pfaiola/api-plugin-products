@@ -42,6 +42,12 @@ type Product {
   "The date and time at which this product was last published. If `null`, it has never been published."
   publishedAt: DateTime
 
+  "The date and time at which this product will be available from"
+  publishedFrom: DateTime
+
+  "The date and time at which this product will no longer be available"
+  publishedUntil: DateTime
+
   "Hash to compare with currentProductHash, to see if this product has changed since it was last published"
   publishedProductHash: String
 
@@ -56,6 +62,9 @@ type Product {
 
   "Holds metadata specific to a specific social network service"
   socialMetadata: [SocialMetadata]
+
+  "Stream feed"
+  liveStream: String
 
   "When a shopper purchases this product, what types of fulfillment can they choose from?"
   supportedFulfillmentTypes: [FulfillmentType]!
@@ -116,6 +125,9 @@ type ProductVariant {
   In most cases this will be the same for all variants at the same level.
   """
   attributeLabel: String
+
+  "The available quantity"
+  availableQty: Int
 
   "The product variant barcode value, if it has one"
   barcode: String
@@ -411,6 +423,9 @@ input ProductInput {
   "True if this product should be shown to shoppers. Typically, non-visible products are not returned in queries."
   isVisible: Boolean
 
+  "Live Stream feed"
+  liveStream: String
+
   "The product description to use for page `description` meta element in HTML"
   metaDescription: String
 
@@ -428,6 +443,12 @@ input ProductInput {
 
   "An arbitrary product type value, such as from an external system"
   productType: String
+
+  "Published from"
+  publishedFrom: DateTime
+
+  "Published until":
+  publishedUntil: DateTime
 
   "Whether this product will be shown in the generated sitemap"
   shouldAppearInSitemap: Boolean
@@ -468,6 +489,9 @@ input ProductVariantInput {
   """
   attributeLabel: String
 
+  "Available Qty"
+  availableQty: Int
+  
   "The product variant barcode value, if it has one"
   barcode: String
 

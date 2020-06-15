@@ -165,6 +165,11 @@ export const ProductVariant = new SimpleSchema({
   "ancestors.$": {
     type: String
   },
+  "availableQty": {
+    type: Number,
+    min: 0,
+    optional: true
+  },
   "attributeLabel": {
     type: String,
     optional: true
@@ -335,6 +340,10 @@ export const Product = new SimpleSchema({
   "isVisible": {
     type: Boolean
   },
+  "liveStream": {
+    type: String,
+    optional: true
+  },
   "metaDescription": {
     type: String,
     optional: true
@@ -368,6 +377,14 @@ export const Product = new SimpleSchema({
     optional: true
   },
   "publishedAt": {
+    type: Date,
+    optional: true
+  },
+  "publishedFrom": {
+    type: Date,
+    optional: true
+  },
+  "publishedUntil": {
     type: Date,
     optional: true
   },
