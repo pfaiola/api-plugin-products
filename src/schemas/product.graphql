@@ -447,7 +447,7 @@ input ProductInput {
   "Published from"
   publishedFrom: DateTime
 
-  "Published until":
+  "Published until"
   publishedUntil: DateTime
 
   "Whether this product will be shown in the generated sitemap"
@@ -491,7 +491,7 @@ input ProductVariantInput {
 
   "Available Qty"
   availableQty: Int
-  
+
   "The product variant barcode value, if it has one"
   barcode: String
 
